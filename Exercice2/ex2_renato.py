@@ -36,25 +36,6 @@ def poisson(l):
         return x
 
 
-"""
-fonction geometrique2(p : reel) : entier
-preconditions : p dans ]0, 1[
-x : entier
-pk :reel
-u = rand()
-x = 1
-pk = p
-F = pk
-tant que u > F faire
-x = x+1
-pk = pk (1-p)
-F = F + pk
-fin tant que
-retourner x
-postconditions : x entier naturel non nul
-fin fonction
-"""
-
 
 def fonctionGeometrique(p):
     if 0 < p < 1:
@@ -84,10 +65,15 @@ def question1():
 
 
 def question2():
-    pass
+    print("LOI GEOMETRIQUE de parametre p")
+    p=5
+
+    print("E[X] theorique = 1/p = 1/"+str(p) +" = " + str(1/p))
+    print("Var(X) theorique = (1-p) / (p²) = 1-" + str(p) + " / " + str(p*p) + " = " + str(((1-p) / (p*p))))
 
 
 def question3():
+    print("LOI de POISSON de parametre lambda")
     l = 5
     x = poisson(l)
     print("E[X] theorique = lambda = " + str(l))
@@ -118,6 +104,10 @@ def question4():
 
 
 """Appel des methodes pour chaque question de l'exercice2"""
+print("-----QUESTION 2----")
+print("\n")
+question2()
+print("\n")
 print("-----QUESTION 3----")
 print("\n")
 question3()
