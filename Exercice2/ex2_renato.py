@@ -4,45 +4,26 @@ import numpy as np
 import numpy.random as rd
 import matplotlib.pyplot as plt
 
+
 def fonctionDiscrete(X, n, P):
     """Tableau X trié par odre croissante"""
     """Tab X et Tab P même taille"""
     """P(X<x1)=p1=0"""
     u = rd.rand()
-    i=1
-    F=P[0]
-    while(i<n and u>F):
-        i+=1
+    i = 1
+    F = P[0]
+    while (i < n and u > F):
+        i += 1
         F = F + P[i]
 
-    if (u>F):
-        print("Loi de poisson :  X est indefini")
+    if (u > F):
         return "indefini"
     else:
         x = X[i]
     return x
 
 
-
-
-def G_question4(p,l):
-    return - ((1 / l) * np.log(1 - p))
-
-
-def expo(l):
-    return G_question4(rd.random(),l)
-
-
-def question1():
-    pass
-
-
-def question2():
-    pass
-
-
 def poisson(l):
-    """P(X=l)"""
     if (l > 0):
         u = rd.random()
         x = 0
@@ -54,23 +35,64 @@ def poisson(l):
             F += pk
         return x
 
+
+"""
+fonction geometrique2(p : reel) : entier
+preconditions : p dans ]0, 1[
+x : entier
+pk :reel
+u = rand()
+x = 1
+pk = p
+F = pk
+tant que u > F faire
+x = x+1
+pk = pk (1-p)
+F = F + pk
+fin tant que
+retourner x
+postconditions : x entier naturel non nul
+fin fonction
+"""
+
+
+def fonctionGeometrique(p):
+    if 0 < p < 1:
+        u = rd.random()
+        x = 1
+        pk = p
+        F = pk
+        while (u > F):
+            x += 1
+            pk = pk * (1 - p)
+            F = F + pk
+        if (x > 0):
+            return x
+        else:
+            return 'indefini'
+
+def G_question4(p, l):
+    return - ((1 / l) * np.log(1 - p))
+
+
+def expo(l):
+    return G_question4(rd.random(), l)
+
+
+def question1():
+    pass
+
+
+def question2():
+    pass
+
+
 def question3():
-    l=2
-    X = np.linspace(0, 10, 100)
-    """print("Table des probabilitées X")"""
-    """print(X)"""
-    """P tab/liste contenant les probabilités de P(X=xi)"""
-    P = []
-    for i in X:
-        result = poisson(l)
-        P.append(result)
-    """print("Table des probabilitées P")"""
-    """print(P)"""
-    x = fonctionDiscrete(X,100,P)
-    if x=="indefini":
-        print("X non defini")
-    else:
-        print("FonctionDiscretePoisson : " + str(x))
+    l = 5
+    x = poisson(l)
+    print("E[X] theorique = lambda = " + str(l))
+    print("Var(X) theorique = lambda = " + str(l))
+    print("Apres calcul fonctionPoisson : " + str(x))
 
 
 def question4():
@@ -79,7 +101,7 @@ def question4():
     """/////////////////////////////////"""
     """on prend le parametre lambda 1"""
     print("pour  lambda = 1\n")
-    l=1
+    l = 1
     X = np.linspace(0, 4, 100)
     Y = np.zeros(100)
     j = 10000
@@ -104,3 +126,16 @@ print("-----QUESTION 4----")
 print("\n")
 question4()
 print("\n")
+
+# pour une loi discrete(bernoulli?)
+# l=2
+# X = np.linspace(0, 10, 100)
+# """print("Table des probabilitées X")"""
+# """print(X)"""
+# """P tab/liste contenant les probabilités de P(X=xi)"""
+# P = []
+# for i in X:
+#   result = poisson(l)
+#   P.append(result)
+# """print("Table des probabilitées P")"""
+# """print(P)"""
