@@ -23,6 +23,22 @@ def fonctionDiscrete(X, n, P):
     return x
 
 
+def factorielle(n):
+    f = 1
+    for k in range(1, n + 1):
+        f *= k
+    return f
+
+
+def discrètePoisson(l, n):
+    X = []
+    P = []
+    for k in range(n):
+        X.append(k)
+        P.append(np.exp(-l) * (l ** k) / factorielle(k))
+    return fonctionDiscrete(X, n, P)
+
+
 def poisson(l):
     if (l > 0):
         u = rd.random()
@@ -36,14 +52,13 @@ def poisson(l):
         return x
 
 
-
 def fonctionGeometrique(p):
     if 0 < p < 1:
         u = rd.random()
         x = 1
         pk = p
         F = pk
-        while (u > F):
+        while u > F:
             x += 1
             pk = pk * (1 - p)
             F = F + pk
@@ -51,6 +66,22 @@ def fonctionGeometrique(p):
             return x
         else:
             return 'indefini'
+
+
+def fonctionGeometrique(p, u=rd.random()):
+    if 0 < p < 1:
+        x = 1
+        pk = p
+        F = pk
+        while u > F:
+            x += 1
+            pk = pk * (1 - p)
+            F = F + pk
+        if (x > 0):
+            return x
+        else:
+            return 'indefini'
+
 
 def G_question4(p, l):
     return - ((1 / l) * np.log(1 - p))
@@ -66,15 +97,17 @@ def question1():
 
 def question2():
     print("LOI GEOMETRIQUE de parametre p")
-    p=5
+    """0<p<1"""
+    p = 0.6
 
-    print("E[X] theorique = 1/p = 1/"+str(p) +" = " + str(1/p))
-    print("Var(X) theorique = (1-p) / (p²) = 1-" + str(p) + " / " + str(p*p) + " = " + str(((1-p) / (p*p))))
+    print("E[X] theorique = 1/p = 1/" + str(p) + " = " + str(1 / p))
+    print("Var(X) theorique = (1-p) / (p²) = 1-" + str(p) + " / " + str(p * p) + " = " + str(((1 - p) / (p * p))))
 
 
 def question3():
     print("LOI de POISSON de parametre lambda")
-    l = 5
+    l = 0.5
+    #x = discrètePoisson(l, 100)
     x = poisson(l)
     print("E[X] theorique = lambda = " + str(l))
     print("Var(X) theorique = lambda = " + str(l))
@@ -99,7 +132,7 @@ def question4():
         # Create bars
     """print(max(Y))"""
     plt.figure()
-    plt.bar(X, Y)
+    plt.plot(X, Y)
     plt.show()
 
 
