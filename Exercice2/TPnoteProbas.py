@@ -238,34 +238,8 @@ def traceUniformeContinue(n,j):
 
 
 ##Exercie 2
-
-
-
-def BernoulliInverse(p):
-    if(random.random()<p):
-        return p
-    else:
-        return 1-p
-    
-
-def poisson(l):
-    if (l>0):
-        u=random.random()
-        x=0
-        pk=np.exp(-l)
-        F=pk
-        while(u>F):
-            x+=1
-            pk=pk*l/x
-            F+=pk
-        return x
-
-
-
-        
-#########################################################################################
-   
-        
+           
+#Q1   
 
 def fonctionDiscrete(X, n, P):
     """Tableau X trié par odre croissante"""
@@ -293,10 +267,44 @@ def BernouilliDiscret(p):
     return fonctionDiscrete(X,1,P)
 
 
-#print(BernouilliDiscret(0.5))
+print(BernouilliDiscret(0.5))
+
+def TestBernouilliInverse(p,n):
+    E=0
+    V=0
+    for k in range(n):
+        E+=BernouilliDiscret(p)/n
+    for k in range(n):
+        V+=((BernouilliDiscret(p)-E)**2)/n
+    print(f"l'espérance doit valoir {p} on trouve {E} pour {n} lancés ")
+    print(f"la variance doit valoir {p*(1-p)} on trouve {V} pour {n} lancés ")
+    
+    
+    
+#TestBernouilliInverse(1/2,100)
 
 
 
+
+
+#########################################################################################
+
+#Q3
+
+
+
+
+def poisson(l):
+    if (l>0):
+        u=random.random()
+        x=0
+        pk=np.exp(-l)
+        F=pk
+        while(u>F):
+            x+=1
+            pk=pk*l/x
+            F+=pk
+        return x
 
 
 
@@ -362,17 +370,13 @@ def TestPoissonDiscret(l,n,j):
     
     
         
-TestPoissonDiscret(0.5,160,1000) 
+TestPoissonDiscret(0.5,160,100) 
   
    
         
+#########################################################################################   
         
-        
-        
-        
-        
-        
-        
+
         
         
         
