@@ -267,7 +267,7 @@ def BernouilliDiscret(p):
     return fonctionDiscrete(X,1,P)
 
 
-print(BernouilliDiscret(0.5))
+#print(BernouilliDiscret(0.5))
 
 def TestBernouilliInverse(p,n):
     E=0
@@ -282,6 +282,46 @@ def TestBernouilliInverse(p,n):
     
     
 #TestBernouilliInverse(1/2,100)
+
+
+
+
+
+#########################################################################################
+
+def geometriqueDiscret(p,n):   ##n valeur de X gardées
+    X=[]
+    P=[]
+    for k in range(1,n+1):
+        X.append(k)
+        P.append(p*(1-p)**k)
+    return fonctionDiscrete(X,n-1,P)
+        
+
+def TestGeoInverse(p,n,j):
+    E=0
+    V=0
+    c=0
+    for i in range(j):
+        if(geometriqueDiscret(p,n)!=False):
+            E+=geometriqueDiscret(p,n)
+            c+=1
+    E=E/c
+    c=0
+    for i in range(j):
+        if(geometriqueDiscret(p,n)!=False):
+            V+=(geometriqueDiscret(p,n)-E)**2
+            c+=1
+    V=V/c
+    print(f"l'espérance doit valoir {1/p} on trouve {E} pour {n} lancés ")
+    print(f"la variance doit valoir {(1-p)/(p**2)} on trouve {V} pour {n} lancés ")
+    
+    
+TestGeoInverse(0.5,100,1000)
+        
+        
+
+
 
 
 
@@ -370,14 +410,40 @@ def TestPoissonDiscret(l,n,j):
     
     
         
-TestPoissonDiscret(0.5,160,100) 
+##TestPoissonDiscret(0.5,160,100)                                                      ###BOF
   
    
         
 #########################################################################################   
-        
 
-        
+
+def G(p,l):
+    return -((1/l)*np.log(1-p))
+
+def expo(l):
+    return G(random.random(),l)
+
+
+
+
+def TraceExpo(l,n,j):
+    X=np.linspace(0,4,n)
+    Y=np.zeros(n)
+    for i in range(j):
+        for k in range(n):
+            if k<=expo(l):
+                Y[k]+=1/j
+    plt.figure()
+    plt.plot(X,Y)
+    plt.show()
+    
+
+TraceExpo(0.5,100,1000)
+
+
+ 
+#########################################################################################  
+
         
         
         
