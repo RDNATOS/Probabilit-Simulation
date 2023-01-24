@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-##Exercice 1
+##Exercice 1##
 
 ##Q1
 
@@ -284,9 +284,6 @@ def TestBernouilliInverse(p,n):
 #TestBernouilliInverse(1/2,100)
 
 
-
-
-
 #########################################################################################
 
 def geometriqueDiscret(p,n):   ##n valeur de X gardées
@@ -319,12 +316,6 @@ def TestGeoInverse(p,n,j):
     
 TestGeoInverse(0.5,100,1000)
         
-        
-
-
-
-
-
 
 
 #########################################################################################
@@ -346,17 +337,6 @@ def poisson(l):
             F+=pk
         return x
 
-
-
-
-
-
-
-
-
-
-
-        
         
 def PoissonDiscret(l,n):
     X=[]
@@ -406,10 +386,7 @@ def TestPoissonDiscret(l,n,j):
     
     
     
-    
-    
-    
-        
+
 ##TestPoissonDiscret(0.5,160,100)                                                      ###BOF
   
    
@@ -422,8 +399,6 @@ def G(p,l):
 
 def expo(l):
     return G(random.random(),l)
-
-
 
 
 def TraceExpo(l,n,j):
