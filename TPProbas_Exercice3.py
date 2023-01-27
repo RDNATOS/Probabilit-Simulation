@@ -33,7 +33,7 @@ def Question1(N):
     plt.plot(X,Z)
     plt.show()
         
-#Question1(1000)     
+#Question1(1000)
 
 def G(p,l):
     return -((1/l)*np.log(1-p))
@@ -63,7 +63,7 @@ def Question2(N,l):
     plt.plot(X,Z)
     plt.show()
         
-#Question2(1000,0.5)  
+Question2(1000,0.5)
 
 
 
@@ -96,7 +96,7 @@ def Question3(N):
     plt.plot(X,Z)
     plt.show()
         
-Question3(1000)  
+#Question3(1000)
 
 
 

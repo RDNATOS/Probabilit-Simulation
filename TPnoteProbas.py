@@ -32,7 +32,8 @@ def testBernoulli(p, lance):
         var += ((X - E) ** 2) / lance
     print(f"la variance doit valoir {p * (1 - p)} on trouve {var} pour {lance} lancés ")
 
-#testBernoulli(1/2,1000)
+
+# testBernoulli(1/2,1000)
 
 
 #########################################################################################
@@ -92,7 +93,8 @@ def TestBinomiale(n, p, j):
         v += (tabSimu[k]) * (((k + 1) - E) ** 2) / j
     print(f"La variance doit théoriquement valoire {n * p * (1 - p)} On trouve {v} ")
 
-#TestBinomiale(10, 1 / 2, 10000)
+
+# TestBinomiale(10, 1 / 2, 10000)
 
 
 #########################################################################################
@@ -128,7 +130,7 @@ def TestGeo(p, j):
     print(f"On doit théoriquement trouver une variance de {(1 - p) / (p ** 2)} On trouve {v} ")
 
 
-#TestGeo(0.7,1000)
+# TestGeo(0.7,1000)
 
 
 #########################################################################################
@@ -163,7 +165,7 @@ def TestUniformDiscrete(n, j):
             f"Pour k={k} et j={j} On doit théoriquement trouver une espérance de E={E} et une variance de V={V}\n On trouve Et={somme}  et Vt={Vt} \n\n ")
 
 
-#TestUniformDiscrete(5,1000)
+# TestUniformDiscrete(5,1000)
 
 
 ##Q5
@@ -189,7 +191,7 @@ def testUniformeContinue(n):
     print(f"La Variance doit théoriquement valoire 1/3 , on trouves {V} pour n={n}")
 
 
-#testUniformeContinue(1000)
+testUniformeContinue(1000)
 
 
 def traceUniformeContinue(n, j):
@@ -199,14 +201,17 @@ def traceUniformeContinue(n, j):
         X2 = UniformeContinue(-1, 1)
         for k in range(n):
             if X1[k] <= X2 < X1[k + 1]:
-                Y[k] += 1
-
+                Y[k] += 1/n
+    L1=X1[:-1]
+    L2=Y[:-1]
     plt.figure()
-    plt.plot(X1, Y)
+    #plt.plot(X1, Y)
+    plt.plot(L1,L2)
+
     plt.show()
 
 
-#traceUniformeContinue(100,10000)
+traceUniformeContinue(100, 10000)
 
 
 #########################################################################################
@@ -256,7 +261,7 @@ def TestBernouilliInverse(p, n):
     print(f"la variance doit valoir {p * (1 - p)} on trouve {V} pour {n} lancés ")
 
 
-#TestBernouilliInverse(1/2,100)
+# TestBernouilliInverse(1/2,100)
 
 
 #########################################################################################
@@ -289,7 +294,7 @@ def TestGeoInverse(p, n, j):
     print(f"la variance doit valoir {(1 - p) / (p ** 2)} on trouve {V} pour {n} lancés ")
 
 
-#TestGeoInverse(0.5, 100, 1000)
+# TestGeoInverse(0.5, 100, 1000)
 
 
 #########################################################################################
@@ -352,7 +357,7 @@ def TestPoissonDiscret(l, n, j):
 #     print(f"On devrait théoriquement trouver V={l}, on trouve V={V}") 
 
 
-##TestPoissonDiscret(0.5,160,100)                                                      ###BOF
+# TestPoissonDiscret(0.5,160,100)                                                      ###BOF
 
 
 #########################################################################################   
