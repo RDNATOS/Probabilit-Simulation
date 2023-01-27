@@ -11,8 +11,6 @@ def UniformeContinue(a,b):
     return a+(b-a)*random.random()
 
 
-
-
 def Question1a(N):
     Y=[]
     X=[]
@@ -159,7 +157,7 @@ def Question3a(N):
     X=[]
     Z=[]
     m=2/3
-    sigma=1/2    ##par calcul
+    sigma=1/18    ##par calcul
     for n in range(1,N+1):
         X.append(n)
         S=0
