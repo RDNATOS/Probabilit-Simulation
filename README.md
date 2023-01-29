@@ -1,6 +1,6 @@
 # Probabilite-Simulation
 
-Yanis Aissaoui 
+Yanis Aissaoui &
 Renato Nascimento
 
 Ce programe fait en python contient 4 fichiers contenant les Exercices 1 à 5 du TP2
