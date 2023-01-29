@@ -37,7 +37,19 @@ def testBernoulli(p, lance):
 
 
 # testBernoulli(1/2,1000)
+def TraceBernoulli(p,lance):
+    X=[0,1]
+    Y=[0,0]
+    for k in range(lance):
+        if Bernoulli(p)==0:
+            Y[0]+=1
+        else:
+            Y[1]+=1
+    plt.figure()
+    plt.bar(X,Y)
+    plt.show()
 
+#TraceBernoulli(0.6,100)
 
 #########################################################################################
 ##Q2
@@ -410,6 +422,8 @@ print("-----EX1_QUESTION 1----")
 print("\n")
 print("LOI DE BERNOULLI de parametre p")
 testBernoulli(1/2,1000)
+time.sleep(3)
+TraceBernoulli(0.6,100)
 print("\n")
 print("")
 time.sleep(3) #on attend 3 secondes avant de pouvoir passer à la question precedente
