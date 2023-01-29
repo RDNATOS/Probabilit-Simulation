@@ -406,8 +406,9 @@ def TestExpo(l, j):
 #########################################################################################
 """Appel des methodes pour chaque question de l'exercice 1"""
 print("-----EXERCICE 1----")
-print("-----QUESTION 1----")
+print("-----EX1_QUESTION 1----")
 print("\n")
+print("LOI DE BERNOULLI de parametre p")
 testBernoulli(1/2,1000)
 print("\n")
 print("")
@@ -415,28 +416,32 @@ time.sleep(3) #on attend 3 secondes avant de pouvoir passer à la question prece
 #cela évite les affichages des graphiques d'autres questions
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 2----")
+    print("-----EX1_QUESTION 2----")
     print("\n")
+    print("Loi Binomiale")
     TestBinomiale(10, 1 / 2, 10000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 3----")
+    print("-----EX1_QUESTION 3----")
     print("\n")
+    print("LOI GEOMETRIQUE de parametre p")
     TestGeo(0.7,1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 4----")
+    print("-----EX1_QUESTION 4----")
     print("\n")
+    print("Loi uniforme discrete")
     TestUniformDiscrete(5,1000)
     print("\n")
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 5----")
+    print("-----EX1_QUESTION 5----")
     print("\n")
+    print("Loi uniforme continue")
     testUniformeContinue(1000)
     time.sleep(3)
     traceUniformeContinue(100, 10000)
@@ -444,13 +449,11 @@ if keyboard.read_key() == "x":
 
 
 
-
-
-
 """Appel des methodes pour chaque question de l'exercice2"""
 print("-----EXERCICE 2----")
 print("-----QUESTION 1----")
 print("\n")
+print("LOI DE BERNOULLI de parametre p")
 TestBernouilliInverse(1/2,100)
 print("\n")
 print("")
@@ -458,23 +461,28 @@ time.sleep(3) #on attend 3 secondes avant de pouvoir passer à la question prece
 #cela évite les affichages des graphiques d'autres questions
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 2----")
+    print("-----EX2_QUESTION 2----")
     print("\n")
+    print("LOI GEOMETRIQUE de parametre p")
     TestGeoInverse(0.5, 100, 1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 3----")
+    print("-----EX2_QUESTION 3----")
     print("\n")
+    print("LOI de POISSON de parametre lambda")
     TestPoissonDiscret(0.5,160,100)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":
-    print("-----QUESTION 4----")
+    print("-----EX2_QUESTION 4----")
     print("\n")
+    print("Exponentielle de parametre lambda")
     TestExpo(0.5, 1000)
     time.sleep(3)
     TraceExpo(0.5, 100, 1000)
     print("\n")
+
+print("FIN EXERCICES 1 ET 2")

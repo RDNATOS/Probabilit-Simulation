@@ -1,5 +1,8 @@
 import random
 import math
+
+import keyboard
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -94,4 +97,36 @@ def Question3(N):
     plt.show()
 
 
-Question3(1000)
+#Question3(1000)
+
+
+"""Appel des methodes pour chaque question de l'exercice 3"""
+print("-----EXERCICE 3----")
+print("-----EX1_QUESTION 1----")
+print("\n")
+print("")
+print("Graphique de la courbe représentative de Sn/n en fonction de n pour la loi Uniforme ")
+time.sleep(1)
+Question1(1000)
+print("\n")
+print("")
+time.sleep(2)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----EX1_QUESTION 2----")
+    print("\n")
+    print("Graphique de la courbe représentative de Sn/n en fonction de n pour la loi exponentielle")
+    time.sleep(1)
+    Question2(1000, 0.5)
+    print("\n")
+time.sleep(2)
+print("Apuyer sur 'x' dans le clavixxxer pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----EX1_QUESTION 3----")
+    print("\n")
+    print("Graphique de la courbe représentative de Sn/n en fonction de n pour la loi ayant comme fonction densité f("
+          "x) = 2x définie sur [0;1]")
+    time.sleep(1)
+    Question3(1000)
+    print("\n")
+time.sleep(2)
