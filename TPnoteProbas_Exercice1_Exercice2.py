@@ -108,15 +108,29 @@ def TestBinomiale(n, p, j):
         v += (tabSimu[k]) * (((k + 1) - E) ** 2) / j
     print(f"La variance doit théoriquement valoire {n * p * (1 - p)} On trouve {v} ")
 
+def TraceBinomiale(n,p,j):
+    X=[]
+    for k in range(1,n+1):
+        X.append(k)
+    Y=np.zeros(n)
+    for i in range(j):
+        V=Binomiale(n,p)
+        for k in range(n):
+            if X[k]<=V<X[k+1]:
+                Y[k]+=1
+    plt.figure()
+    plt.bar(X,Y)
+    plt.show()
+
 
 # TestBinomiale(10, 1 / 2, 10000)
-
+#TraceBinomiale(100,0.5,1000)
 
 #########################################################################################
 ##Q3
 
 
-def geometrique2(p):
+def geometrique(p):
     if p < 0 or p > 1:
         return "Erreur p doit appartenir à [0,1]"
     u = random.random()
@@ -130,22 +144,36 @@ def geometrique2(p):
     return x
 
 
-# print(geometrique2(0.5,100))
+# print(geometrique(0.5,100))
 
 def TestGeo(p, j):
     somme = 0
     v = 0
     for i in range(j):
-        somme += geometrique2(p) / j
+        somme += geometrique(p) / j
     print("GEOMETRIQUE")
     print(f"On doit théoriquement trouver une espérance de {1 / p} On trouve {somme} ")
 
     for i in range(j):
-        v += ((geometrique2(p) - somme) ** 2) / j
+        v += ((geometrique(p) - somme) ** 2) / j
     print(f"On doit théoriquement trouver une variance de {(1 - p) / (p ** 2)} On trouve {v} ")
 
+def TraceGeo(p,n,j):
+    X=[]
+    for k in range(1,n+1):
+        X.append(k)
+    Y=np.zeros(n)
+    for i in range(j):
+        V=geometrique(p)
+        for k in range(n-1):
+            if X[k]<=V<X[k+1]:
+                Y[k]+=1
+    plt.figure()
+    plt.bar(X,Y)
+    plt.show()
 
 # TestGeo(0.7,1000)
+#TraceGeo(0.7,10,1000)
 
 
 #########################################################################################
@@ -308,6 +336,21 @@ def TestGeoInverse(p, n, j):
     print(f"l'espérance doit valoir {1 / p} on trouve {E} pour {n} lancés ")
     print(f"la variance doit valoir {(1 - p) / (p ** 2)} on trouve {V} pour {n} lancés ")
 
+def TraceGeo2(p,n,j):
+    X=[]
+    for k in range(1,n+1):
+        X.append(k)
+    Y=np.zeros(n)
+    for i in range(j):
+        V=geometriqueDiscret(p,n)
+        for k in range(n-1):
+            if X[k]<=V<X[k+1]:
+                Y[k]+=1
+    plt.figure()
+    plt.bar(X,Y)
+    plt.show()
+
+#TraceGeo2(0.7,10,1000)
 
 # TestGeoInverse(0.5, 100, 1000)
 
@@ -434,6 +477,8 @@ if keyboard.read_key() == "x":
     print("\n")
     print("Loi Binomiale")
     TestBinomiale(10, 1 / 2, 10000)
+    time.sleep(2)
+    TraceBinomiale(100, 0.5, 1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
@@ -442,6 +487,8 @@ if keyboard.read_key() == "x":
     print("\n")
     print("LOI GEOMETRIQUE de parametre p")
     TestGeo(0.7,1000)
+    time.sleep(2)
+    TraceGeo(0.7, 10, 1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
@@ -479,6 +526,8 @@ if keyboard.read_key() == "x":
     print("\n")
     print("LOI GEOMETRIQUE de parametre p")
     TestGeoInverse(0.5, 100, 1000)
+    time.sleep(2)
+    TraceGeo2(0.7, 10, 1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")

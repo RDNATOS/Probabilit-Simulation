@@ -1,12 +1,15 @@
 import random
 import math
+
+import keyboard
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 
 def UniformeContinue(a,b):
     if a>b:
-        return("Erreur il faut a<b")
+        return "Erreur il faut a<b"
     return a+(b-a)*random.random()
 
 
@@ -22,13 +25,13 @@ def BoxMuller1(n):
         for i in range(n-1):
             if(Xc[i]<=Y<Xc[i+1]):
                 Yc[i]+=1/n
-    
-    
-        
+
+
+
     plt.figure()
     plt.bar(Xc,Yc)
     plt.show()
-    
+
 def BoxMuller2(n,j):    ##n le nombre de val aléatoire et j le nombre d'intervalle de la représentation
     Xc=np.linspace(-10,10,j)
     Yc=np.zeros(j)
@@ -43,26 +46,38 @@ def BoxMuller2(n,j):    ##n le nombre de val aléatoire et j le nombre d'interva
         for i in range(j-1):
             if(Xc[i]<=Y<Xc[i+1]):
                 Yc[i]+=1/n
-    
+
     E=0
     V=0
     for k in range(j):
         E+=Xc[k]*Yc[k]
     for k in range(n):
-        V+=((W[k]-E)**2)/n   
-    
-    print(f"On trouve une espérance expérimentale de {E}") 
-    print(f"On trouve une Variance expérimentale de {V}")    
-        
+        V+=((W[k]-E)**2)/n
+
+    print(f"On trouve une espérance expérimentale de {E}")
+    print(f"On trouve une Variance expérimentale de {V}")
+
     plt.figure()
     plt.bar(Xc,Yc)
     plt.show()
 
-        
+
 #BoxMuller1(1000)
+
+#BoxMuller2(1000,500)
+
+"""Appel des methodes pour chaque question de l'exercice 4"""
+print("-----EXERCICE 5----")
+print("\n")
+print("")
+time.sleep(1)
+BoxMuller1(1000)
+time.sleep(2)
 BoxMuller2(1000,500)
-
-
+print("\n")
+print("\n")
+time.sleep(2)
+print("FIN EXERCICE 5")
 
 
 
