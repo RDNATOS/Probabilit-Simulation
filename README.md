@@ -1,6 +1,5 @@
 # Probabilite-Simulation
 
-@authors
 Yanis Aissaoui 
 Renato Nascimento
 
