@@ -6,7 +6,6 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 ##Exercice 1##
 
 ##Q1
@@ -309,32 +308,32 @@ def TestBernouilliInverse(p, n):
 
 #########################################################################################
 
-def geometriqueDiscret(p, n):  ##n valeur de X gardées
-    X = []
-    P = []
-    for k in range(1, n + 1):
+def geometriqueDiscret(p,n):   ##n valeur de X gardées
+    X=[]
+    P=[]
+    for k in range(1,n+1):
         X.append(k)
-        P.append(p * (1 - p) ** k)
-    return fonctionDiscrete(X, n - 1, P)
+        P.append(p*((1-p)**(k-1)))
+    return fonctionDiscrete(X,n-1,P)
 
 
-def TestGeoInverse(p, n, j):
-    E = 0
-    V = 0
-    c = 0
+def TestGeoInverse(p,n,j):
+    E=0
+    V=0
+    c=0
     for i in range(j):
-        if (geometriqueDiscret(p, n) != False):
-            E += geometriqueDiscret(p, n)
-            c += 1
-    E = E / c
-    c = 0
+        if(geometriqueDiscret(p,n)!=False):
+            E+=geometriqueDiscret(p,n)
+            c+=1
+    E=E/c
+    c=0
     for i in range(j):
-        if (geometriqueDiscret(p, n) != False):
-            V += (geometriqueDiscret(p, n) - E) ** 2
-            c += 1
-    V = V / c
-    print(f"l'espérance doit valoir {1 / p} on trouve {E} pour {n} lancés ")
-    print(f"la variance doit valoir {(1 - p) / (p ** 2)} on trouve {V} pour {n} lancés ")
+        if(geometriqueDiscret(p,n)!=False):
+            V+=(geometriqueDiscret(p,n)-E)**2
+            c+=1
+    V=V/c
+    print(f"l'espérance doit valoir {1/p} on trouve {E} pour {j} lancés ")
+    print(f"la variance doit valoir {(1-p)/(p**2)} on trouve {V} pour {j} lancés ")
 
 def TraceGeo2(p,n,j):
     X=[]
@@ -445,7 +444,7 @@ def TestExpo(l, j):
 #TraceExpo(0.5, 100, 1000)
 
 #########################################################################################
-"""Appel des methodes pour chaque question de l'exercice 1"""
+"""Appel des methodes pour chaque question de l'exercice xxxxxx1"""
 print("-----EXERCICE 1----")
 print("-----EX1_QUESTION 1----")
 print("\n")
@@ -511,9 +510,9 @@ if keyboard.read_key() == "x":
     print("-----EX2_QUESTION 2----")
     print("\n")
     print("LOI GEOMETRIQUE de parametre p")
-    TestGeoInverse(0.5, 100, 1000)
+    TestGeoInverse(0.5,1000,10000)
     time.sleep(2)
-    TraceGeo2(0.7, 10, 1000)
+    TraceGeo2(0.5,10,1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
