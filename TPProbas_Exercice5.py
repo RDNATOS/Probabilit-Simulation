@@ -32,7 +32,7 @@ def BoxMuller1(n):
     plt.bar(Xc,Yc)
     plt.show()
 
-def BoxMuller2(n,j):    ##n le nombre de val aléatoire et j le nombre d'intervalle de la représentation
+def BoxMuller(n,j):    ##n le nombre de val aléatoire et j le nombre d'intervalle de la représentation
     Xc=np.linspace(-10,10,j)
     Yc=np.zeros(j)
     W=[]
@@ -71,9 +71,8 @@ print("-----EXERCICE 5----")
 print("\n")
 print("")
 time.sleep(1)
-BoxMuller1(1000)
 time.sleep(2)
-BoxMuller2(1000,500)
+BoxMuller(1000,500)
 print("\n")
 print("\n")
 time.sleep(2)
