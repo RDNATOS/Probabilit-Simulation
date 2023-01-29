@@ -1,5 +1,8 @@
 import random
 import math
+
+import keyboard
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -191,7 +194,7 @@ def testUniformeContinue(n):
     print(f"La Variance doit théoriquement valoire 1/3 , on trouves {V} pour n={n}")
 
 
-testUniformeContinue(1000)
+#testUniformeContinue(1000)
 
 
 def traceUniformeContinue(n, j):
@@ -202,7 +205,7 @@ def traceUniformeContinue(n, j):
         for k in range(n):
             if X1[k] <= X2 < X1[k + 1]:
                 Y[k] += 1/n
-    L1=X1[:-1]
+    L1=X1[:-1] #on passe X1 dans une liste pour pouvoir supprimer le dernier élement
     L2=Y[:-1]
     plt.figure()
     #plt.plot(X1, Y)
@@ -211,7 +214,7 @@ def traceUniformeContinue(n, j):
     plt.show()
 
 
-traceUniformeContinue(100, 10000)
+#traceUniformeContinue(100, 10000)
 
 
 #########################################################################################
@@ -261,7 +264,7 @@ def TestBernouilliInverse(p, n):
     print(f"la variance doit valoir {p * (1 - p)} on trouve {V} pour {n} lancés ")
 
 
-# TestBernouilliInverse(1/2,100)
+#TestBernouilliInverse(1/2,100)
 
 
 #########################################################################################
@@ -376,13 +379,102 @@ def TraceExpo(l, n, j):
     Y = np.zeros(n)
     for i in range(j):
         for k in range(n):
-            if k <= expo(l):
-                Y[k] += 1 / j
+            if k <= expo(l) < k + 1:
+                Y[k] += 1 / (j)
+    #print(Y)
+
     plt.figure()
     plt.plot(X, Y)
     plt.show()
 
 
+def TestExpo(l, j):
+    E = 0
+    V = 0
+    for i in range(j):
+        E += expo(l) / j
+    for i in range(j):
+        V += ((expo(l) - E) ** 2) / j
+    print(f"On devrait théoriquement trouver E={1 / l}, on trouve E={E}")
+    print(f"On devrait théoriquement trouver V={1 / (l ** 2)}, on trouve V={V}")
+
+
+#TestExpo(0.5, 1000)
+
 #TraceExpo(0.5, 100, 1000)
 
 #########################################################################################
+"""Appel des methodes pour chaque question de l'exercice 1"""
+print("-----EXERCICE 1----")
+print("-----QUESTION 1----")
+print("\n")
+testBernoulli(1/2,1000)
+print("\n")
+print("")
+time.sleep(3) #on attend 3 secondes avant de pouvoir passer à la question precedente
+#cela évite les affichages des graphiques d'autres questions
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 2----")
+    print("\n")
+    TestBinomiale(10, 1 / 2, 10000)
+    print("\n")
+time.sleep(3)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 3----")
+    print("\n")
+    TestGeo(0.7,1000)
+    print("\n")
+time.sleep(3)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 4----")
+    print("\n")
+    TestUniformDiscrete(5,1000)
+    print("\n")
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 5----")
+    print("\n")
+    testUniformeContinue(1000)
+    time.sleep(3)
+    traceUniformeContinue(100, 10000)
+    print("\n")
+
+
+
+
+
+
+"""Appel des methodes pour chaque question de l'exercice2"""
+print("-----EXERCICE 2----")
+print("-----QUESTION 1----")
+print("\n")
+TestBernouilliInverse(1/2,100)
+print("\n")
+print("")
+time.sleep(3) #on attend 3 secondes avant de pouvoir passer à la question precedente
+#cela évite les affichages des graphiques d'autres questions
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 2----")
+    print("\n")
+    TestGeoInverse(0.5, 100, 1000)
+    print("\n")
+time.sleep(3)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 3----")
+    print("\n")
+    TestPoissonDiscret(0.5,160,100)
+    print("\n")
+time.sleep(3)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----QUESTION 4----")
+    print("\n")
+    TestExpo(0.5, 1000)
+    time.sleep(3)
+    TraceExpo(0.5, 100, 1000)
+    print("\n")
