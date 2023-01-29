@@ -401,21 +401,7 @@ def TestPoissonDiscret(l, n, j):
     print(f"On devrait théoriquement trouver V={l}, on trouve V={V}")
 
 
-# def TestPoissonDiscret(l,n,j):
-#     E=0
-#     V=0
-#     for i in range(j):
-#         if(PoissonDiscret(l,n)!=False):
-#             E+=PoissonDiscret(l,n)/j
-
-#     for i in range(j):
-#         if(PoissonDiscret(l,n)!=False):
-#             V+=((PoissonDiscret(l,n)-E)**2)/j
-#     print(f"On devrait théoriquement trouver E={l}, on trouve E={E}") 
-#     print(f"On devrait théoriquement trouver V={l}, on trouve V={V}") 
-
-
-# TestPoissonDiscret(0.5,160,100)                                                      ###BOF
+# TestPoissonDiscret(0.5,160,100)       
 
 
 #########################################################################################   
