@@ -109,7 +109,7 @@ print("Graphique de la courbe représentative de Sn/n en fonction de n pour la l
 time.sleep(1)
 Question1(1000)
 print("\n")
-print("")xx
+print("")
 time.sleep(2)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
 if keyboard.read_key() == "x":

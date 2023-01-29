@@ -1,13 +1,16 @@
 import random
 import math
+
+import keyboard
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 
 
 def UniformeContinue(a,b):
     if a>b:
-        return("Erreur il faut a<b")
+        return "Erreur il faut a<b"
     return a+(b-a)*random.random()
 
 
@@ -267,14 +270,39 @@ def Question3b(N):
     plt.show()
 
 
-Question3b(1000)   
+#Question3b(1000)
 
 
 #####################################################################################
 
-
-
-
+"""Appel des methodes pour chaque question de l'exercice 4"""
+print("-----EXERCICE 4----")
+print("-----EX4_QUESTION 1b----")
+print("\n")
+print("")
+time.sleep(1)
+Question1b(1000,1000)
+print("\n")
+print("")
+time.sleep(2)
+print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----EX4_QUESTION 2b----")
+    print("\n")
+    time.sleep(1)
+    Question2b(1000,0.5)
+    print("\n")
+time.sleep(2)
+print("Apuyer sur 'x' dans le clavixxxer pour continuer à la question suivante")
+if keyboard.read_key() == "x":
+    print("-----EX3_QUESTION 3b----")
+    print("\n")
+    print("Graphique de la courbe représentative de Sn/n en fonction de n pour la loi ayant comme fonction densité f("
+          "x) = 2x définie sur [0;1]")
+    time.sleep(1)
+    Question3b(1000)
+    print("\n")
+print("FIN EXERCICE 4")
 
 
 
