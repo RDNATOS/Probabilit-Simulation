@@ -444,7 +444,7 @@ def TestExpo(l, j):
 #TraceExpo(0.5, 100, 1000)
 
 #########################################################################################
-"""Appel des methodes pour chaque question de l'exercice xxxxxx1"""
+"""Appel des methodes pour chaque question de l'exercice 1"""
 print("-----EXERCICE 1----")
 print("-----EX1_QUESTION 1----")
 print("\n")
@@ -520,7 +520,7 @@ if keyboard.read_key() == "x":
     print("-----EX2_QUESTION 3----")
     print("\n")
     print("LOI de POISSON de parametre lambda")
-    TestPoissonDiscret(0.5,160,100)
+    TestPoissonDiscret(0.7,160,1000)
     print("\n")
 time.sleep(3)
 print("Apuyer sur 'x' dans le clavier pour continuer à la question suivante")
