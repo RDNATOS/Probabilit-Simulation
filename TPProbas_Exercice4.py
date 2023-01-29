@@ -43,34 +43,6 @@ def UniformeContinue(a,b):
 
 #####################################################################################
 
-
-# def Question1b(N):
-#     Y=[]
-#     X=[]
-#     Z=[]
-#     m=0.5   ## E[Xn]=0.5 car c'est l'espérance d'une loi uniforme sur [0,1]
-#     sigma=1/12 
-#     for n in range(1,N+1):
-#         X.append(n)
-#         S=0
-#         for k in range(n):
-#             u=UniformeContinue(0,1)
-#             S+=u/n
-#         Y.append(S)
-#     for n in range(N):
-#         Z.append((Y[n]-m)*(np.sqrt(n+1)/sigma))
-    
-#     X=np.linspace(-20,20,N)
-#     W=np.zeros(N)
-#     for n in range(N):
-#         for k in range(N):
-#             if X[k]<=Z[n]<X[k+1]:
-#                 W[k]+=1/N
-                
-#     plt.figure()
-#     plt.bar(X,W)
-#     plt.show()
-    
     
 def Question1b(N,j):
     Y=[]
